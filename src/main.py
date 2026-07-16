@@ -42,7 +42,7 @@ async def perform_security_scan(email):
     if score > 50:
         print(f"ALERT: High threat score {score} for {email}! Flagging immediately.")
         conn = get_db_connection()
-        conn.execute("UPDATE leases SET status = "flagged" WHERE email = ?", (email,))
+        conn.execute("UPDATE leases SET status = 'flagged' WHERE email = ?", (email,))
         conn.commit()
         conn.close()
         return

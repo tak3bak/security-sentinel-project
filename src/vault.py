@@ -37,7 +37,8 @@ class VaultManager:
         import json
         with open(self.vault_path, "w") as f:
             json.dump(vault, f)
-        print(f"[+] Securely stored '{secret_name}' into encrypted vault storage configuration.")import os
+        print(f"[+] Securely stored '{secret_name}' into encrypted vault storage configuration.")
+import os
 from cryptography.fernet import Fernet
 
 class VaultManager:
