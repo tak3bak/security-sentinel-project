@@ -3,3 +3,7 @@
 __pycache__/
 *.pyc
 quarantine/
+security-sentinel-mvp/sentinel_data/
+sentinel_data/
+*.log
+*.bak
