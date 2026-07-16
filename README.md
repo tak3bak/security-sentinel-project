@@ -6,6 +6,3 @@ It is designed for automated threat detection, file integrity monitoring, and au
 * **Automated Inspection:** Real-time scanning for sensitive leaks and threats.
 * **Threat Quarantine:** Automated isolation of suspicious files.
 * **Custom Integration:** Tailored for Nomadik SOps architecture.
-
-## Deployment
-See the project documentation in the /src directory for deployment instructions.

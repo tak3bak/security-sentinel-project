@@ -1,9 +1,8 @@
-.env
-.venv/
-__pycache__/
-*.pyc
-quarantine/
-security-sentinel-mvp/sentinel_data/
+# Runtime data and logs
 sentinel_data/
 *.log
 *.bak
+*.db
+results.json
+__pycache__/
+.env
