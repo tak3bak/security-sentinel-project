@@ -1,5 +1,4 @@
-name: "CodeQL Advanced"
-version: "1"
+name: "CodeQL"
 
 on:
   push:
@@ -21,7 +20,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'python' ]
+        language: [ 'python', 'actions' ]
+        # CodeQL supports [ 'python', 'javascript-typescript', 'actions', etc. ]
+        # Removed 'javascript-typescript' to prevent the scan error shown in your screenshot.
 
     steps:
     - name: Checkout repository
@@ -37,5 +38,3 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:${{matrix.language}}"
