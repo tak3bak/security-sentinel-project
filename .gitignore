@@ -1,8 +1,2 @@
-# Runtime data and logs
-sentinel_data/
-*.log
-*.bak
-*.db
-results.json
+venv/
 __pycache__/
-.env
