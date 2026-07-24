@@ -1,0 +1,35 @@
+networks:
+  security-sentinel-network:
+    driver: bridge
+
+services:
+  spiderfoot:
+    build:
+      context: .
+      dockerfile: Dockerfile.spiderfoot
+    container_name: spiderfoot_instance
+    restart: always
+    environment:
+      - PYTHONPATH=/app:/app/spiderfoot
+    ports:
+      - "5001:5001"
+    entrypoint: []
+    command: ["python", "/app/sf.py", "-l", "0.0.0.0:5001"]
+    networks:
+      - security-sentinel-network
+
+  sentinel-monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile.sentinel
+    container_name: security_sentinel_monitor
+    restart: always
+    environment:
+      - PYTHONPATH=/app
+      - TARGET_DIR=/mnt/target
+    volumes:
+      - .:/mnt/target
+    entrypoint: []
+    command: ["python", "/app/sentinel.py"]
+    networks:
+      - security-sentinel-network

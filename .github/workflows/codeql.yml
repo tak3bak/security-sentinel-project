@@ -1,15 +1,32 @@
-name: "CodeQL"
+name: Security Sentinel CI
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "master" ]
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
 
 jobs:
-  check:
-    name: CodeQL analysis check
+  analyze:
+    name: Analyze Code
     runs-on: ubuntu-latest
+    
     steps:
-    - name: Dummy success check to satisfy branch protection rules
-      run: exit 0
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Add your build and scanning steps here that generate the SARIF file
+      # Example:
+      # - name: Run security scan
+      #   run: |
+      #     # command to generate results/actions.sarif
+
+      - name: Upload SARIF results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results/actions.sarif

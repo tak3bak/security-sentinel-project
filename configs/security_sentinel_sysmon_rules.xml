@@ -1,0 +1,29 @@
+<group name="windows,sysmon,sentinel_active_defense,">
+
+  <rule id="100050" level="0">
+    <if_sid>60000</if_sid>
+    <field name="win.system.providerName">^Microsoft-Windows-Sysmon$</field>
+    <description>Security Sentinel: Intercepted Raw Sysmon Telemetry Stream.</description>
+  </rule>
+
+  <rule id="100051" level="12">
+    <if_sid>100050</if_sid>
+    <field name="win.system.eventId">^3$</field>
+    <field name="win.eventdata.image">!=\\msedge.exe$|!=\\chrome.exe$|!=\\teams.exe$</field>
+    <description>CRITICAL ALERT: Out-of-Band Network Socket Initiated by Untrusted Image: $(win.eventdata.image) to Destination: $(win.eventdata.destinationIp)</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+  </rule>
+
+  <rule id="100052" level="10">
+    <if_sid>100050</if_sid>
+    <field name="win.system.eventId">^1$</field>
+    <field name="win.eventdata.commandLine">-enc|-encodedcommand|-w hidden|-windowstyle hidden|-nop|-noprofile</field>
+    <description>SUSPICIOUS ACTIVITY: Obfuscated Execution String Flags Triggered by Parent: $(win.eventdata.parentImage)</description>
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+  </rule>
+
+</group>

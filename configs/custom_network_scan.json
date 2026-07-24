@@ -1,0 +1,5 @@
+{"timestamp": "2026-07-22T01:37:02-0600", "integration": "deep_network_scan", "device_ip": "10.0.0.1", "device_name": "XFINITY", "device_type": "IoT Device", "ports_open": [80, 443, 1883], "suspicious": true, "security_issue": "MQTT broker open without TLS \u2014 IoT device commands interceptable", "severity": "MEDIUM"}
+{"timestamp": "2026-07-22T01:37:02-0600", "integration": "deep_network_scan", "device_ip": "10.0.0.34", "device_name": "D32h-J04-b45b34c19c7bea405ca277...", "device_type": "Smart TV / Streamer", "ports_open": [7000, 8443], "suspicious": false}
+{"timestamp": "2026-07-22T01:37:02-0600", "integration": "deep_network_scan", "device_ip": "10.0.0.135", "device_type": "Unidentified device", "suspicious": false}
+{"timestamp": "2026-07-22T01:37:02-0600", "integration": "deep_network_scan", "device_ip": "10.0.0.231", "device_type": "Unidentified device", "suspicious": false}
+{"timestamp": "2026-07-22T01:37:02-0600", "integration": "deep_network_scan", "device_ip": "10.0.0.232", "device_type": "Unidentified device", "suspicious": false}
